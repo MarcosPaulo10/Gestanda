@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cadastrar Cliente</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    <h1>Cadastrar Cliente</h1>
+    {% if erro %}
+        <p class="error">{{ erro }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label>Nome:<br><input type="text" name="nome" required></label>
+        <label>CPF/CNPJ:<br><input type="text" name="cpf_cnpj" maxlength="14" required></label>
+        <label>Telefone:<br><input type="text" name="telefone"></label>
+        <label>Informações:<br><textarea name="info"></textarea></label>
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{% url 'cadastros_home' %}">Voltar</a>
+</body>
+</html>

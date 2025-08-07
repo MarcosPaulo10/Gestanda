@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home - Cadastros</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+  <h1>Menu de Cadastros</h1>
+  <nav>
+    <ul style="list-style: none; padding-left: 0; max-width: 350px;">
+      <li><a href="{% url 'cadastro_produto' %}">Cadastrar Produto</a></li>
+      <li><a href="{% url 'cadastro_cliente' %}">Cadastrar Cliente</a></li>
+      <li><a href="{% url 'cadastro_caixa' %}">Registrar Entrada/Saída no Caixa</a></li>
+    </ul>
+  </nav>
+</body>
+</html>

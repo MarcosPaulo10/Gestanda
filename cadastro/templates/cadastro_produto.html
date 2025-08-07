@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cadastrar Produto</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    <h1>Cadastrar Produto</h1>
+    {% if erro %}
+        <p style="color:red;">{{ erro }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label>Nome:<br><input type="text" name="nome" required></label><br><br>
+        <label>Descrição:<br><textarea name="descricao"></textarea></label><br><br>
+        <label>Preço:<br><input type="text" name="preco" required></label><br><br>
+        <label>Ativo: <input type="checkbox" name="ativo" checked></label><br><br>
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{% url 'cadastros_home' %}">Voltar</a>
+</body>
+</html>
