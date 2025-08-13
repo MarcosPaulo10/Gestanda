@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Produto, Cliente, Comanda, Caixa
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def cadastros_home(request):
     return render(request, 'cadastros_home.html')
 
+@login_required
 def cadastro_produto(request):
     erro = None
     if request.method == 'POST':
@@ -26,6 +29,7 @@ def cadastro_produto(request):
 
     return render(request, 'cadastro_produto.html', {'erro': erro})
 
+@login_required
 def cadastro_cliente(request):
     erro = None
     if request.method == 'POST':
@@ -43,6 +47,7 @@ def cadastro_cliente(request):
 
     return render(request, 'cadastro_cliente.html', {'erro': erro})
 
+@login_required
 def cadastro_caixa(request):
     erro = None
     if request.method == 'POST':

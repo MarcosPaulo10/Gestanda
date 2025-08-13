@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'title' %}Log In{% endblock %}
+
+{% block 'head' %}{% endblock %}
+
+{% block 'body' %}
+    <div class="form-container">
+        <h2>Login</h2>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p class="error">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Usuário" required>
+            <input type="password" name="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <p style="text-align:center">
+            Não tem conta? <a href="{% url 'signin' %}">Cadastre-se</a>
+        </p>
+    </div>
+{% endblock %}
+
+
+
+
+

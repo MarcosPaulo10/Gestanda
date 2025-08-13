@@ -1,12 +1,11 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <title>Cadastrar Cliente</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-</head>
-<body>
+
+{% block 'title' %}Cadastrar Cliente{% endblock %}
+
+{% block 'head' %}{% endblock %}
+
+{% block 'body' %}
     <h1>Cadastrar Cliente</h1>
     {% if erro %}
         <p class="error">{{ erro }}</p>
@@ -20,5 +19,4 @@
         <button type="submit">Salvar</button>
     </form>
     <a href="{% url 'cadastros_home' %}">Voltar</a>
-</body>
-</html>
+{% endblock %}
